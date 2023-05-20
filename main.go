@@ -13,7 +13,17 @@ func main() {
 	}
 	r := csv.NewReader(openedFile)
 	result, _ := r.ReadAll()
+	var answer string
+	trueAnswers := 0
+	for idx, value := range result {
+		
+		fmt.Printf("Problem #%d : %s = \n", idx + 1, value[0])
+		fmt.Scanf("%s\n", &answer)
 
-	fmt.Println(result)
+		if (answer == value[1]) {
+			trueAnswers++
+		}
+	}; 
+	fmt.Printf("Anda benar %d dari %d soal \n", trueAnswers, len(result))
 
 }
